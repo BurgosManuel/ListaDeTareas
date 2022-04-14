@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+/* Usamos :host en lugar de :root en Angular, ya que este último no funciona. */
+:host {
+  --primary-color: #87cefa;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+form {
+  position: relative;
+  margin: 4em auto;
+  padding: 3em;
+  max-width: 30em;
+  background-color: #f4f4f4;
+  font-family: 'Raleway', sans-serif;
+}
+
+form p {
+  margin-top: .5rem;
+  margin-left: .5rem;
+}
+
+input {
+  padding: 1rem;
+}
+
+.addButton {
+  position: absolute;
+  top: 7em;
+  right: 1.5em;
+  padding: 1.5em;
+  border: solid 1px var(--primary-color);
+  border-radius: 100%;
+  background-color: var(--primary-color);
+  color: #fff;
+  user-select: none;
+  transition: transform  .2s;
+}
+
+@media (max-width: 400px) {
+  .addButton {
+    top: 10em
+  }
+}
+
+.addButton:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.addButton i {
+  font-size: 2rem;
+}
+
+
+ul {
+  margin: 1.5em 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 1.2em;
+  margin-bottom: 1em;
+  background-color: #fff;
+  border-left: solid 3px var(--primary-color);
+}
+
+li i:hover {
+  cursor: pointer;
+}

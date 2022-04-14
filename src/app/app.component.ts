@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'clase-sincronica';
+  listaTareas: string[] = [];
+
+  agregarTarea(tarea:string):void {
+    if (tarea != '') {
+      this.listaTareas.push(tarea);
+    }
+  }
+  eliminarTarea(tarea:string) {
+    const arr: string[] = this.listaTareas;
+    for(let i: number = 0; i < arr.length; i++ ) {
+      if (arr[i] == tarea) {
+        arr.splice(i, 1);
+      }
+    } 
+  }
 }
+
