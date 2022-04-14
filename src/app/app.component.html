@@ -1,20 +1,24 @@
 <div class="container">
-  <form>
+  <!-- Asiganmos una variable al form y acivamos el ngForm. Utilizamos un metodo cuando el formulario se envia a través de (ngSubmit), esto genera que al apretar "ENTER", podamos agregar tareas a la lista. Vaciamos el input con reset() en el formulario. -->
+  <form #formularioTareas="ngForm" (ngSubmit)="enviarFormulario(formularioTareas.value); formularioTareas.reset()">
     <div class="form-group">
       <h1 class="text-center fw-bold">Lista de Tareas</h1>
       <div class="input-group-prepend">
+        <!-- Asignamos la variable 'inputTarea' a nuestro input para acceder a sus valores junto con ngModel. Le damos el nombre 'tarea' al nuestro input para usarlo a través de los métodos y agregamos un autocomplete OFF para que no nos moleste el autocompletado.-->
         <input
-          #todo
+          #inputTarea
+          ngModel
           type="text"
           class="form-control"
           placeholder="Escribir tarea"
-          name="todo"
-          ngModel
+          name="tarea"
           autocomplete="off"
         />
-        <span class="addButton text-white input-group-text" (click)="agregarTarea(todo.value); todo.value=''"><i class="material-icons">add</i></span>
+        <!-- Agregamos estilos y Event Binding (click) a nuestro botón para agregar. Reiniciamos el valor al enviar a través del botón. Utilizamos "Material Icons" para el signo + -->
+        <span class="addButton text-white input-group-text" (click)="agregarTarea(inputTarea.value); formularioTareas.reset()"><i class="material-icons">add</i></span>
       </div>
         <ul>
+          <!-- Creamos un elemento <li> por cada elemento en la lista de tareas. Usamos Event Binding (click) en nuestro botón para eliminar. -->
           <li *ngFor="let tarea of listaTareas">{{ tarea }} <i class="material-icons" (click)="eliminarTarea(tarea)">delete</i></li>
         </ul>
     </div>
